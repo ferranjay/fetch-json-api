@@ -4,42 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+   integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+   crossorigin=""></script>
     <title>Fetch JSON from API</title>
+    
 </head>
 <body>
-    <header>
-        <h2>Fetching JSON from API and mapping latitude and longitude</h2>
-        <h3>Coordinates of the ISS</h3>
-    </header>
+    <div class="container">
+        <header>
+            <h2>Fetching JSON from API and mapping latitude and longitude</h2>
+            <h3>Coordinates of the ISS</h3>
+        </header>
 
-    <p>
-        latitude: <span id="lat"></span><br>
-        longitude: <span id="lon"></span><br>
-    </p>
+        <p>
+            latitude: <span id="lat"></span><br>
+            longitude: <span id="lon"></span><br>
+        </p>
 
+        <div id="issMap"></div>
+    </div>
 
-
-
-
-    <script>
-    // DATA from : https://wheretheiss.at/w/developer 
-
-        const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
-        
-        async function getISS(){
-            const response = await fetch (api_url);
-            const data = await response.json();                         // converting response into json
-            const { latitude, longitude } = data;                       // javascript destucturing, which takes the pieces out of a js object or an array and puts them into seperate variables
-
-            document.getElementById('lat').textContent = latitude;
-            document.getElementById('lon').textContent = longitude;
-
-        }
-
-        getISS();
-
-        
-            
+    <script src="main.js">       
     </script>
 </body>
 </html>

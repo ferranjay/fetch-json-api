@@ -1,0 +1,14 @@
+body {
+    font-family: monospace;
+    text-align: center;
+}
+
+.container {
+    margin-top: 200px;
+}
+
+#issMap {
+    height: 180px;
+    width: 680px;
+    display: inline-block;
+}
