@@ -27,12 +27,19 @@
             const data = await response.json();                         // converting response into json
             const { latitude, longitude } = data;                       // javascript destucturing, which takes the pieces out of a js object or an array and puts them into seperate variables
 
-            // L.marker([latitude, longitude]).addTo(mymap);
+            //specifying the location of the marker and map itself
+            
             marker.setLatLng([latitude, longitude]);
+            mymap.setView([latitude, longitude], 2);
 
-            document.getElementById('lat').textContent = latitude;
-            document.getElementById('lon').textContent = longitude;
+            // add javascript function toFixed, which will fix what it is adding to only 2 decimal places
+            document.getElementById('lat').textContent = latitude.toFixed(2);
+            document.getElementById('lon').textContent = longitude.toFixed(2);
 
         }
 
         getISS();
+
+        // setInterval function = take a function and have it happen every so often
+        
+        setInterval(getISS, 1000);
